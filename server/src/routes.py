@@ -82,9 +82,9 @@ async def send_sms(
     )
 
 
-@auth_router.post("/twilio")
+@auth_router.post("/twilio", status_code=200)
 async def process_token(
-    user_token: User2FAKey, session: Session = get_db_session(), status_code=200
+    user_token: User2FAKey, session: Session = Depends(get_db_session)
 ):
     user_2fa_key = get_user_token(user_token.username)
     if user_2fa.token != user_token.token:
