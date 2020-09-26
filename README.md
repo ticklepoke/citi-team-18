@@ -86,6 +86,10 @@ to exploit a host process and enter the host filesystem as root. One alternative
 
 We currently store our software images on dockerhub as a public repository. We would need to transition to a private registry when we build enterprise software.
 
+### Secrets Security
+
+We can use Cloud Key Management Services or tools like Git-secret to limit access control and vulnerabilities.
+
 ## Work Breakdown
 
 ### Chin Zhi Wei
