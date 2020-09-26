@@ -120,7 +120,7 @@ const Login = () => {
                         ]}
                     >
                         <Input
-                            placeholder="Enter mobile"
+                            placeholder="Enter Mobile"
                             value={mobile}
                             onChange={handleMobileChange}
                         />
