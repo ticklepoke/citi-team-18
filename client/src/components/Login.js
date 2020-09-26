@@ -157,12 +157,12 @@ const Login = () => {
                         rules={[
                             {
                                 required: true,
-                                message: "Please input your Password!",
+                                message: "Please input your password!",
                             },
                         ]}
                     >
                         <Input
-                            placeholder="Enter password"
+                            placeholder="Enter Password"
                             type="password"
                             value={password}
                             onChange={handlePasswordChange}
