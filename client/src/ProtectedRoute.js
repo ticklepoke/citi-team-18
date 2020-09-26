@@ -34,15 +34,16 @@ export const clearToken = () => {
 export default function ProtectedRoute({ component: Component, ...rest }) {
     const token = loadToken();
 
-    return;
-    <Route
-        {...rest}
-        render={(props) =>
-            token ? (
-                <Component {...props} />
-            ) : (
-                <Redirect to={{ pathname: "/" }} />
-            )
-        }
-    ></Route>;
+    return (
+        <Route
+            {...rest}
+            render={(props) =>
+                token ? (
+                    <Component {...props} />
+                ) : (
+                    <Redirect to={{ pathname: "/" }} />
+                )
+            }
+        ></Route>
+    );
 }
