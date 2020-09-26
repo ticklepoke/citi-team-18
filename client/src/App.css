@@ -16,3 +16,51 @@
     background-color: #eee;
     min-height: calc(100vh - 50px);
 }
+
+.text-white {
+    color: #fff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.icon-large {
+    height: 50px;
+    font-size: 50px;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-padding-top {
+    padding-top: 20px;
+}
+
+.modal-button {
+    background-color: #2392cc !important;
+    height: 100%;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-button-container {
+    padding: 20px;
+    width: 100%;
+}
+
+.modal-button:hover {
+    background-color: #2392cc;
+}
