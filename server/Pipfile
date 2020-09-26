@@ -21,6 +21,8 @@ passlib = "*"
 autopep8 = "*"
 python-jose = "*"
 python-multipart = "*"
+twilio = "*"
+authy = "*"
 
 [requires]
 python_version = "3.7"
