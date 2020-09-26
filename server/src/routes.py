@@ -76,9 +76,7 @@ async def send_sms(
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
-        body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-        from_="+12185165401",
-        to=user_account.mobile_number,
+        body=user_2fa_entry.token, from_="+12185165401", to=user_account.mobile_number
     )
 
 
