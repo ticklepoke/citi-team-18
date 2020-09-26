@@ -41,7 +41,10 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 -   Built the login page with 2FA capabilities.
 
 -   Built the past transactions page
+-   Setup the JWT handling
 
 ### Lester Tay
 
 -   Built the transaction sending page
+-   Setup the front end router
+-   Setup the stylesheets
