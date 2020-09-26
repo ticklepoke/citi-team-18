@@ -6,6 +6,16 @@ Team TrizzaPizza's submission for the Citi Virtual Hackathon 2020.
 
 Ez-Transfer is a web centric solution for money transfer that focuses on security and seamless user experience.
 
+## Security Principles
+
+### Limiting Blast Radius
+
+Our backend services are hosted using containerization in order to limit the blast radius of any intrusion attempts. An intruder would only get access to the container file system and not the host (GCP) filesystem.
+
+### Multi Stage Builds
+
+We built and bundle our production code with a multi stage process, preventing redundant code such as unit tests from going into the end distribution bundle. This reduces the amount of code in production which reduces the surface area of malicious attacks.
+
 ## Security
 
 Ez-transfer applies the following techniques to ensure secure transactions and user identity protection:
