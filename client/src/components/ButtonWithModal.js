@@ -1,47 +1,150 @@
-import React from "react";
-import { Modal, Button } from "antd";
+import React, { Fragment, useState } from "react";
+import {
+  Form,
+  InputNumber,
+  Input,
+  Button,
+  Modal,
+  Typography,
+  message,
+  Cascader,
+} from "antd";
 
-class ButtonWithModal extends React.Component {
-  state = { visible: false };
+const { Text } = Typography;
+const options = [
+  {
+    value: "Nigel",
+    label: "Nigel",
+  },
+  {
+    value: "Anthony",
+    label: "Anthony",
+  },
+  {
+    value: "Lester",
+    label: "Lester",
+  },
+  {
+    value: "Chen Qiu",
+    label: "Chen Qiu",
+  },
+  {
+    value: "Guo Xiong",
+    label: "Guo Xiong",
+  },
+];
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
+const NewTransactionForm = ({ visible, onNewTransaction, onCancel }) => {
+  const [form] = Form.useForm();
 
-  handleOk = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
+  function onChange(value, selectedOptions) {
+    console.log(value, selectedOptions);
+  }
 
-  handleCancel = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
-  render() {
-    return (
-      <>
-        <Button type="primary" onClick={this.showModal}>
-          New Transaction
-        </Button>
-        <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
-      </>
+  function filter(inputValue, path) {
+    return path.some(
+      (option) =>
+        option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
     );
   }
-}
-export default ButtonWithModal;
+
+  return (
+    <Modal
+      visible={visible}
+      title="New Transaction"
+      okText="Send"
+      cancelText="Cancel"
+      onCancel={onCancel}
+      onOk={() => {
+        form
+          .validateFields()
+          .then((values) => {
+            form.resetFields();
+            console.log("values", values);
+          })
+          .catch((info) => {
+            console.log("Validate Failed:", info);
+          });
+      }}
+    >
+      <Form
+        form={form}
+        layout="vertical"
+        name="form_in_modal"
+        initialValues={{
+          modifier: "public",
+        }}
+      >
+        <Form.Item
+          label="Amount"
+          name="amount"
+          rules={[
+            {
+              required: true,
+              message: "Please input your amount!",
+            },
+          ]}
+        >
+          <InputNumber
+            defaultValue={0}
+            formatter={(value) =>
+              `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
+            parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
+            type="amount"
+            placeholder="Enter Amount"
+          />
+        </Form.Item>
+        <Form.Item
+          name="recepient"
+          label="Recepient"
+          rules={[
+            {
+              required: true,
+              message: "Please select your recepient!",
+            },
+          ]}
+        >
+          <Cascader
+            name="recepient"
+            options={options}
+            onChange={onChange}
+            placeholder="Please select"
+            showSearch={{ filter }}
+          />
+        </Form.Item>
+      </Form>
+    </Modal>
+  );
+};
+const NewTransactionButton = (props) => {
+  const [visible, setVisible] = useState(false);
+
+  const onNewTransaction = (data) => {
+    console.log("hellodata, ", data);
+  };
+  return (
+    <Fragment>
+      <Button
+        type="primary"
+        style={{
+          marginTop: "16px",
+          padding: "0 20px 0 20px",
+        }}
+        onClick={() => {
+          setVisible(true);
+        }}
+      >
+        <strong>New Transaction</strong>
+      </Button>
+      <NewTransactionForm
+        visible={visible}
+        onNewTransaction={onNewTransaction}
+        onCancel={() => {
+          setVisible(false);
+        }}
+      />
+    </Fragment>
+  );
+};
+export default NewTransactionButton;
