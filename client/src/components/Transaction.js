@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Row, Col, Typography } from "antd";
+import ButtonWithModal from "./ButtonWithModal";
 const { Title } = Typography;
 const Transaction = () => (
   <Row style={{ paddingTop: 20 }}>
@@ -16,6 +17,7 @@ const Transaction = () => (
           boxShadow: "box-shadow: -4px 3px 24px 0px rgba(28,128,187,0.41);",
         }}
       ></Row>
+      <ButtonWithModal />
     </Col>
     <Col span={4}></Col>
   </Row>
