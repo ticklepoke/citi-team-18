@@ -3,7 +3,6 @@ import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "./components/Login";
 import Transaction from "./components/Transaction";
-import ProtectedRoute from "./ProtectedRoute";
 
 function Router(props) {
     return (
