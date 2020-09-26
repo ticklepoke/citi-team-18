@@ -11,8 +11,8 @@
 }
 
 .card {
-    width: 40%;
-    margin: 20px;
+    width: 30%;
+    margin: 40px;
     margin-top: 200px;
 }
 
@@ -65,4 +65,10 @@
         width: 100%;
         overflow: auto;
     }
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
