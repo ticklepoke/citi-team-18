@@ -71,12 +71,18 @@ async def login_for_access_token(
 async def send_sms(
     user_request: User2FARequest, session: Session = Depends(get_db_session)
 ):
-    user_2fa_entry = create_2fa_token(session, user_request)
+    check = get_user_token(session, user_request.username)
+    token = None
+    if check is not None:
+        user_2fa_entry = create_2fa_token(session, user_request)
+        token = user_2fa_entry.token
+    else:
+        token = check.token
     user_account = get_user_account(session, user_request.username)
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
-        body=user_2fa_entry.token, from_="+12185165401", to=user_account.mobile_number
+        body=token, from_="+12185165401", to=user_account.mobile_number
     )
 
 
