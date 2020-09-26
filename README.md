@@ -26,7 +26,7 @@ Ez-transfer applies the following techniques to ensure secure transactions and u
 
 -   Database sanitisation to prevent injection attacks (Object Relational Mapping Layer).
 
--   CSRF protection.
+-   CSRF protection because we pass in the JWT through Bearer instead of a cookie.
 
 ## User Experience
 
@@ -40,7 +40,7 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   The frontend can be viewed at http://35.247.137.131:3000/
 
--   The backend docs can be viewed at http://35.247.137.131:8080/docs
+-   The backend docs can be viewed at http://35.247.137.131:8080/docs. Automatically generated using OpenAPI.
 
 -   Unit Tests
 
