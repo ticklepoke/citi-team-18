@@ -74,8 +74,14 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 ## Future Improvements
 
--   Running containers as non-root. Docker currently runs containers as root. This is vulnerable in the case of container escape attacks where intruders are able
-    to exploit a host process and enter the host filesystem as root. One alternative we are looking at is podman.
+### Container Escape Attacks
+
+Running containers as non-root. Docker currently runs containers as root. This is vulnerable in the case of container escape attacks where intruders are able
+to exploit a host process and enter the host filesystem as root. One alternative we are looking at is podman.
+
+### Image Storage Vulnerabilities
+
+We currently store our software images on dockerhub as a public repository. We would need to transition to a private registry when we build enterprise software.
 
 ## Work Breakdown
 
