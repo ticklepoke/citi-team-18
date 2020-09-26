@@ -16,6 +16,10 @@ Our backend services are hosted using containerization in order to limit the bla
 
 We built and bundle our production code with a multi stage process, preventing redundant code such as unit tests from going into the end distribution bundle. This reduces the amount of code in production which reduces the surface area of malicious attacks.
 
+### Secrets
+
+Sensitive information such as auth tokens and secrets keys were not checked into source code or docker images. We used docker secrets as resources to manage our secret keys.
+
 ## Security Techniques
 
 Ez-transfer applies the following techniques to ensure secure transactions and user identity protection:
@@ -63,6 +67,11 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 -   Cloud Deployment: GCP Compute Virtual Machine
 
 -   2FA Service: Twilio
+
+## Future Improvements
+
+-   Running containers as non-root. Docker currently runs containers as root. This is vulnerable in the case of container escape attacks where intruders are able
+    to exploit a host process and enter the host filesystem as root. One alternative we are looking at is podman.
 
 ## Work Breakdown
 
