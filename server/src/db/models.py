@@ -11,7 +11,7 @@ class UserAccount(Base):
     user_id = Column(Integer, primary_key=True)
     username = Column(String)
     password = Column(String)
-    mobile_number = Column(string)
+    mobile_number = Column(String)
 
     def __eq__(self, other):
         return (
