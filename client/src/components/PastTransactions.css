@@ -31,3 +31,8 @@
 .text-bold {
     font-weight: bolder;
 }
+
+.transaction-card:hover {
+    box-shadow: 0px 2px 5px #999;
+    transition: box-shadow ease-in 250ms;
+}
