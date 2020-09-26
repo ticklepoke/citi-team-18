@@ -14,8 +14,10 @@ const Transaction = () => {
   const [balance, setBalance] = useState(1890.3);
 
   const logout = () => {
-    history.push("/login");
-    clearToken();
+    setTimeout(() => {
+      history.push("/login");
+      clearToken();
+    }, 500);
   };
 
   function newTransactionMock(transaction) {

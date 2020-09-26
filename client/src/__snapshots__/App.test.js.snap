@@ -1,0 +1,493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders app 1`] = `
+Array [
+  <div
+    className="App"
+  >
+    <nav
+      className="banner-gradient"
+    >
+      <img
+        alt="Citi"
+        height="40px"
+        src="citiwhite.png"
+      />
+    </nav>
+    <Router />
+  </div>,
+]
+`;
+
+exports[`renders login 1`] = `
+Array [
+  <React.Fragment>
+    <div
+      className="bg-main"
+    />
+    <div
+      className="display-flex-card"
+    >
+      <Card
+        className="card"
+      >
+        <Steps
+          current={0}
+        >
+          <Step
+            title="Login"
+          />
+          <Step
+            title="Verification"
+          />
+        </Steps>
+        <ForwardRef(InternalForm)
+          className="form-login"
+        >
+          <FormItem
+            label="Mobile Number"
+            name="mobileNumber"
+            rules={
+              Array [
+                Object {
+                  "message": "Please input your username!",
+                  "required": true,
+                },
+              ]
+            }
+          >
+            <Input
+              onChange={[Function]}
+              placeholder="Enter mobile"
+              type="text"
+              value="+65"
+            />
+          </FormItem>
+          <FormItem>
+            <ForwardRef(InternalButton)
+              block={false}
+              disabled={true}
+              ghost={false}
+              htmlType="button"
+              loading={false}
+              onClick={[Function]}
+              type="primary"
+            >
+              Submit
+            </ForwardRef(InternalButton)>
+          </FormItem>
+        </ForwardRef(InternalForm)>
+      </Card>
+    </div>
+  </React.Fragment>,
+]
+`;
+
+exports[`renders past transactions 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "paddingTop": 20,
+      }
+    }
+  >
+    <strong>
+      Past Transactions
+    </strong>
+    <Card
+      className="transaction-card"
+    >
+      <ForwardRef
+        align="top"
+        className="transaction-row"
+        justify="center"
+      >
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            shape="circle"
+            size="large"
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          />
+          <span
+            className="text-center"
+          >
+            From: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            You
+          </h4>
+        </ForwardRef>
+        <ForwardRef
+          span={16}
+        >
+          <h3
+            className="label-amount"
+          >
+            Amount
+          </h3>
+          <h2
+            className="amount"
+          >
+            SGD 
+            100
+          </h2>
+          <h5
+            className="text-center"
+          >
+            12 Sep 2020
+          </h5>
+        </ForwardRef>
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            icon={<ForwardRef(UserOutlined) />}
+            shape="circle"
+            size="large"
+          />
+          <span
+            className="text-center"
+          >
+             To: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            Lester
+          </h4>
+        </ForwardRef>
+      </ForwardRef>
+    </Card>
+    <Card
+      className="transaction-card"
+    >
+      <ForwardRef
+        align="top"
+        className="transaction-row"
+        justify="center"
+      >
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            icon={<ForwardRef(UserOutlined) />}
+            shape="circle"
+            size="large"
+          />
+          <span
+            className="text-center"
+          >
+            From: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            Lester
+          </h4>
+        </ForwardRef>
+        <ForwardRef
+          span={16}
+        >
+          <h3
+            className="label-amount"
+          >
+            Amount
+          </h3>
+          <h2
+            className="amount"
+          >
+            SGD 
+            110
+          </h2>
+          <h5
+            className="text-center"
+          >
+            2 Sep 2020
+          </h5>
+        </ForwardRef>
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            shape="circle"
+            size="large"
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          />
+          <span
+            className="text-center"
+          >
+             To: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            You
+          </h4>
+        </ForwardRef>
+      </ForwardRef>
+    </Card>
+    <Card
+      className="transaction-card"
+    >
+      <ForwardRef
+        align="top"
+        className="transaction-row"
+        justify="center"
+      >
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            shape="circle"
+            size="large"
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          />
+          <span
+            className="text-center"
+          >
+            From: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            You
+          </h4>
+        </ForwardRef>
+        <ForwardRef
+          span={16}
+        >
+          <h3
+            className="label-amount"
+          >
+            Amount
+          </h3>
+          <h2
+            className="amount"
+          >
+            SGD 
+            1
+          </h2>
+          <h5
+            className="text-center"
+          >
+            1 Sep 2020
+          </h5>
+        </ForwardRef>
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            icon={<ForwardRef(UserOutlined) />}
+            shape="circle"
+            size="large"
+          />
+          <span
+            className="text-center"
+          >
+             To: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            Nigel
+          </h4>
+        </ForwardRef>
+      </ForwardRef>
+    </Card>
+    <Card
+      className="transaction-card"
+    >
+      <ForwardRef
+        align="top"
+        className="transaction-row"
+        justify="center"
+      >
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            shape="circle"
+            size="large"
+            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          />
+          <span
+            className="text-center"
+          >
+            From: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            You
+          </h4>
+        </ForwardRef>
+        <ForwardRef
+          span={16}
+        >
+          <h3
+            className="label-amount"
+          >
+            Amount
+          </h3>
+          <h2
+            className="amount"
+          >
+            SGD 
+            1
+          </h2>
+          <h5
+            className="text-center"
+          >
+            1 Sep 2020
+          </h5>
+        </ForwardRef>
+        <ForwardRef
+          className="col-center"
+          span={4}
+        >
+          <ForwardRef(InternalAvatar)
+            icon={<ForwardRef(UserOutlined) />}
+            shape="circle"
+            size="large"
+          />
+          <span
+            className="text-center"
+          >
+             To: 
+          </span>
+          <h4
+            className="text-center text-bold"
+          >
+            Anthony
+          </h4>
+        </ForwardRef>
+      </ForwardRef>
+    </Card>
+  </div>,
+]
+`;
+
+exports[`renders transaction 1`] = `
+Array [
+  <ForwardRef
+    className="background-light-grey"
+    style={
+      Object {
+        "paddingTop": 20,
+      }
+    }
+  >
+    <ForwardRef
+      span={4}
+    />
+    <ForwardRef
+      span={16}
+    >
+       
+      <div
+        className="justify-center-around"
+      >
+        <Title
+          level={2}
+        >
+           Welcome Back, Zhi Wei
+        </Title>
+        <ForwardRef(InternalButton)
+          block={false}
+          ghost={false}
+          htmlType="button"
+          loading={false}
+          onClick={[Function]}
+          style={
+            Object {
+              "borderRadius": 6,
+              "padding": "0 15px 0 15px",
+            }
+          }
+          type="primary"
+        >
+          Logout
+        </ForwardRef(InternalButton)>
+      </div>
+      <ForwardRef
+        style={
+          Object {
+            "backgroundColor": "#2392cc",
+            "borderRadius": 14,
+            "boxShadow": "-4px 3px 16px -4px rgba(35,146,204,0.86)",
+            "marginTop": 30,
+            "marginVertical": 40,
+            "minHeight": 250,
+            "width": "100%",
+          }
+        }
+      >
+        <ForwardRef
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "column",
+              "padding": 20,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#F6F7EB",
+                "fontSize": 28,
+                "marginTop": 10,
+                "position": "relative",
+                "top": 10,
+              }
+            }
+          >
+            Account Balance
+          </Text>
+          <Text
+            level={2}
+            style={
+              Object {
+                "color": "#F6F7EB",
+                "fontSize": 67,
+                "marginTop": 0,
+              }
+            }
+          >
+             
+            $1890.30
+             
+          </Text>
+        </ForwardRef>
+      </ForwardRef>
+      <NewTransactionButton />
+    </ForwardRef>
+    <ForwardRef
+      span={4}
+    />
+    <ForwardRef
+      span={4}
+    />
+    <ForwardRef
+      span={16}
+    >
+      <PastTransactions />
+    </ForwardRef>
+    <ForwardRef
+      span={4}
+    />
+  </ForwardRef>,
+]
+`;
