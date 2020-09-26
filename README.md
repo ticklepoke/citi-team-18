@@ -32,6 +32,8 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   Developed the python server, models and postgres database.
 
+-   Deployed the backend service on GCP
+
 ### Nigel Lee
 
 -   Setup Twilio account for 2FA authentication purposes.
