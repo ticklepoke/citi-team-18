@@ -43,7 +43,7 @@ async def create_user(
         raise HTTPException(status_code=400, detail="User has already registered")
 
     created_user = create_user_account(session, user_account_details)
-    response = {"id": created_user.id, "username": created_user.username}
+    response = {"id": created_user.userid, "username": created_user.username}
     return response
 
 
