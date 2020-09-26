@@ -1,66 +1,66 @@
 @import "~antd/dist/antd.css";
 
 .banner-gradient {
-    background: rgb(12, 74, 137);
-    background: linear-gradient(
-        0deg,
-        rgba(12, 74, 137, 1) 27%,
-        rgba(46, 184, 240, 1) 100%
-    );
-    height: 50px;
-    padding-left: 30px;
-    padding-top: 2px;
+  background: rgb(12, 74, 137);
+  background: linear-gradient(
+    0deg,
+    rgba(12, 74, 137, 1) 27%,
+    rgba(46, 184, 240, 1) 100%
+  );
+  height: 50px;
+  padding-left: 30px;
+  padding-top: 2px;
 }
 
 .background-light-grey {
-    background-color: #eee;
-    min-height: calc(100vh - 50px);
+  background-color: #fff;
+  min-height: calc(100vh - 50px);
 }
 
 .text-white {
-    color: #fff;
+  color: #fff;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .icon-large {
-    height: 50px;
-    font-size: 50px;
+  height: 50px;
+  font-size: 50px;
 }
 
 .justify-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .text-padding-top {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .modal-button {
-    background-color: #2392cc !important;
-    height: 100%;
-    color: white;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  background-color: #2392cc !important;
+  height: 100%;
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .modal-button-container {
-    padding: 20px;
-    width: 100%;
+  padding: 20px;
+  width: 100%;
 }
 
 .modal-button:hover {
-    background-color: #2392cc;
+  background-color: #2392cc;
 }
