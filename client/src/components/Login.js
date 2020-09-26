@@ -5,6 +5,7 @@ import ReactCodeInput from "react-verification-code-input";
 import axios from "axios";
 import { Redirect, useHistory } from "react-router-dom";
 import querystring from "querystring";
+import { saveToken } from "../ProtectedRoute";
 
 const { Step } = Steps;
 const Login = () => {
@@ -31,7 +32,6 @@ const Login = () => {
         setError(false);
         setloading(true);
         // PROD API
-        console.log(username, password);
         try {
             const res = await axios.post(
                 "http://35.247.137.131:8080/auth/token",
@@ -44,6 +44,7 @@ const Login = () => {
             );
 
             if (res.status == 200) {
+                saveToken(res.data.access_token);
                 history.push("/transaction");
             }
         } catch (err) {
@@ -85,6 +86,7 @@ const Login = () => {
         // setloading(false)
         // }
         setTimeout(() => {
+            saveToken("blah");
             history.push("/transaction");
         }, 2000);
     };
