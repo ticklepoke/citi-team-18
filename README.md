@@ -90,11 +90,11 @@ We currently store our software images on dockerhub as a public repository. We w
 
 ### Secrets Security
 
-We can use Cloud Key Management Services or tools like Git-secret to limit access control and vulnerabilities.
+We can use Cloud Key Management Services or tools like Git-secret/Mozilla-SOPs to limit access control and vulnerabilities.
 
 ### GitOps and vulnerability Scanning
 
-We can implment vulnerability scanning within a continuous pipeline that will scan images to be deployed based on a set of rules, and reject pipeline jobs that are deemed as not secure.
+We can implment vulnerability scanning within a continuous pipeline that will scan images to be deployed based on a set of rules, and reject pipeline jobs that are deemed as not secure. SonarQube is a popular tool to scan Docker images while JFrog is a recent SaaS specialising in hosting image registries.
 
 ![GitOps](./what-is-gitops.png)
 
