@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Row, Col, Card } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import Avatar from "antd/lib/avatar/avatar";
@@ -82,5 +82,10 @@ export default function PastTransactions(props) {
 
         return cards;
     };
-    return <div>{renderCards()}</div>;
+    return (
+        <div style={{ paddingTop: 20 }}>
+            <strong>Past Transactions</strong>
+            {renderCards()}
+        </div>
+    );
 }

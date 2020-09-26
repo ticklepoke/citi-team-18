@@ -64,3 +64,9 @@
 .modal-button:hover {
     background-color: #2392cc;
 }
+
+.justify-center-around {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
