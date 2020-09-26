@@ -16,7 +16,7 @@ Our backend services are hosted using containerization in order to limit the bla
 
 We built and bundle our production code with a multi stage process, preventing redundant code such as unit tests from going into the end distribution bundle. This reduces the amount of code in production which reduces the surface area of malicious attacks.
 
-## Security
+## Security Techniques
 
 Ez-transfer applies the following techniques to ensure secure transactions and user identity protection:
 
