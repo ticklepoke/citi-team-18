@@ -60,7 +60,7 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   Deployment Tools: Docker-Compose
 
--   Cloud Deployment: GCP
+-   Cloud Deployment: GCP Compute Virtual Machine
 
 -   2FA Service: Twilio
 
