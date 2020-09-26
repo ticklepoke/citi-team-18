@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from "react";
 import "./Login.css";
-import { Card, Steps, Form, Button, Input, Spin } from "antd";
+import { Card, Steps, Form, Button, Input, Spin, Divider } from "antd";
 import ReactCodeInput from "react-verification-code-input";
 import axios from "axios";
 import { Redirect, useHistory } from "react-router-dom";
+import querystring from "querystring";
+import { saveToken } from "../ProtectedRoute";
 
 const { Step } = Steps;
 const Login = () => {
@@ -12,30 +14,44 @@ const Login = () => {
     const [sms, setSMS] = useState("");
     const [loading, setloading] = useState(false);
     const [error, setError] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const history = useHistory();
 
     const submitNumber = async () => {
         setError(false);
         setloading(true);
-        // PROD API
-        // try {
-        //     const res = await axios.post(
-        //         "http://35.247.137.131:8080/auth/hook",
-        //         { username: mobile }
-        //     );
-
-        //     if (res.success) {
-        //         setStep(1);
-        //     }
-        // } catch (err) {
-        //     console.log(err);
-        //     setError(true);
-        // }
 
         setTimeout(() => {
             setStep(1);
             setloading(false);
         }, 1000);
+    };
+
+    const submitEmail = async () => {
+        setError(false);
+        setloading(true);
+        // PROD API
+        try {
+            const res = await axios.post(
+                "http://35.247.137.131:8080/auth/token",
+                querystring.stringify({ username: "Nigel", password: "Blah" }),
+                {
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                }
+            );
+
+            if (res.status == 200) {
+                saveToken(res.data.access_token);
+                history.push("/transaction");
+            }
+        } catch (err) {
+            console.log(err);
+            setError(true);
+            setloading(false);
+        }
     };
 
     const cancelStep = () => {
@@ -44,6 +60,14 @@ const Login = () => {
 
     const handleMobileChange = (event) => {
         setMobile(event.target.value);
+    };
+
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.name);
+    };
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
     };
 
     const submitSMS = async (event) => {
@@ -59,8 +83,10 @@ const Login = () => {
         //     }
         // } catch (err) {
         //     setError(true);
+        // setloading(false)
         // }
         setTimeout(() => {
+            saveToken("blah");
             history.push("/transaction");
         }, 2000);
     };
@@ -89,7 +115,7 @@ const Login = () => {
                         rules={[
                             {
                                 required: true,
-                                message: "Please input your username!",
+                                message: "Please input your mobile!",
                             },
                         ]}
                     >
@@ -98,15 +124,59 @@ const Login = () => {
                             value={mobile}
                             onChange={handleMobileChange}
                         />
-                    </Form.Item>
-
+                    </Form.Item>{" "}
                     <Form.Item>
                         <Button
                             type="primary"
                             disabled={mobile.length < 8}
                             onClick={submitNumber}
                         >
-                            Submit
+                            Login with Mobile
+                        </Button>
+                    </Form.Item>
+                    <Divider />
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please input your username!",
+                            },
+                        ]}
+                    >
+                        <Input
+                            placeholder="Enter Username"
+                            value={username}
+                            onChange={handleUsernameChange}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        label="Passowrd"
+                        name="password"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please input your password!",
+                            },
+                        ]}
+                    >
+                        <Input
+                            placeholder="Enter password"
+                            type="password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                        />
+                    </Form.Item>{" "}
+                    <Form.Item>
+                        <Button
+                            type="primary"
+                            disabled={
+                                username.length == 0 && password.length == 0
+                            }
+                            onClick={submitEmail}
+                        >
+                            Login With Username
                         </Button>
                     </Form.Item>
                 </Form>

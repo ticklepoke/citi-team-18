@@ -14,7 +14,7 @@ Ez-transfer applies the following techniques to ensure secure transactions and u
 
 -   2FA sms services to handle authentication.
 
--   Database sanitisation to prevent injection attacks.
+-   Database sanitisation to prevent injection attacks (Object Relational Mapping Layer).
 
 -   XSS protection.
 
