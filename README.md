@@ -20,7 +20,7 @@ Ez-transfer applies the following techniques to ensure secure transactions and u
 
 ## User Experience
 
-EX-transfer applies the following techniques on the User Experience side to provide the optimal experience for end users:
+Ez-transfer applies the following techniques on the User Experience side to provide the optimal experience for end users:
 
 -   Optimistic confirmation to give users live feedback of their transfer progress.
 
