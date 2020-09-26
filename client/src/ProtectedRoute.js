@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 
 const loadToken = () => {
     try {
-        const serializedToken = JSON.parse(localStorage.getItem("token"));
+        const serializedToken = JSON.parse(sessionStorage.getItem("token"));
         if (serializedToken == null) {
             return undefined;
         } else {
@@ -17,7 +17,7 @@ const loadToken = () => {
 export const saveToken = (token) => {
     try {
         const serializedToken = JSON.stringify(token);
-        localStorage.setItem("token", serializedToken);
+        sessionStorage.setItem("token", serializedToken);
     } catch (err) {
         return undefined;
     }
@@ -25,7 +25,7 @@ export const saveToken = (token) => {
 
 export const clearToken = () => {
     try {
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
     } catch (err) {
         return undefined;
     }
