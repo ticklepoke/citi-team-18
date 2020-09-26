@@ -32,9 +32,15 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   The backend docs can be viewed at http://35.247.137.131:8080/docs
 
+-   Unit Tests
+
+    ![Unit Tests](./unit_test.png)
+
 ## Tech Stack
 
 -   Frontend: React
+
+-   Frontend Unit Tests: Jest and Enzyme
 
 -   Backend: FastAPI (Python)
 

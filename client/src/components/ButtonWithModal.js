@@ -1,7 +1,19 @@
 import React, { Fragment, useState } from "react";
-import { Form, InputNumber, Button, Modal, Typography, Cascader } from "antd";
+import {
+  Form,
+  InputNumber,
+  Button,
+  Modal,
+  Typography,
+  Cascader,
+  message,
+} from "antd";
 
-import { SendOutlined, DoubleLeftOutlined } from "@ant-design/icons";
+import {
+  LoadingOutlined,
+  SendOutlined,
+  DoubleLeftOutlined,
+} from "@ant-design/icons";
 
 const { Text } = Typography;
 const options = [
@@ -27,9 +39,15 @@ const options = [
   },
 ];
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 const NewTransactionForm = ({ visible, onNewTransaction, onCancel }) => {
   const [form] = Form.useForm();
-
+  const [formState, setFormState] = useState("BEFORE_SEND");
   function onChange(value, selectedOptions) {
     console.log(value, selectedOptions);
   }
@@ -45,14 +63,19 @@ const NewTransactionForm = ({ visible, onNewTransaction, onCancel }) => {
     <Modal
       visible={visible}
       title="New Transaction"
-      okText="Send"
+      okText={formState === "SENDING" ? "Sending..." : "Send"}
       cancelText="Cancel"
       onCancel={onCancel}
       onOk={() => {
         form
           .validateFields()
-          .then((values) => {
+          .then(async (values) => {
+            setFormState("SENDING");
+            await sleep(2000);
+            onNewTransaction(values);
+            setFormState("BEFORE_SEND");
             form.resetFields();
+            message.success("Transaction Successful");
             console.log("values", values);
           })
           .catch((info) => {
@@ -112,9 +135,15 @@ const NewTransactionForm = ({ visible, onNewTransaction, onCancel }) => {
 };
 const NewTransactionButton = (props) => {
   const [visible, setVisible] = useState(false);
-
+  const { newTransactionMock } = props;
   const onNewTransaction = (data) => {
     console.log("hellodata, ", data);
+    newTransactionMock({
+      from: "You",
+      to: data.recepient[0],
+      amount: data.amount,
+      date: "26 Sep 2020",
+    });
   };
   return (
     <Fragment>
