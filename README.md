@@ -4,7 +4,11 @@ Team TrizzaPizza's submission for the Citi Virtual Hackathon 2020.
 
 ## Introduction
 
-Ez-Transfer is a web centric solution for money transfer that focuses on security and seamless user experience.
+Ez-Transfer is a web centric solution for money transfer that focuses on security and seamless user experience. Targets the following **OWASP** security risks:
+
+1. SQL injection
+2. Cross-Site Scripting
+3. Broken Authentication
 
 ## Security Principles
 
@@ -24,7 +28,7 @@ Sensitive information such as auth tokens and secrets keys were not checked into
 
 Ez-transfer applies the following techniques to ensure secure transactions and user identity protection:
 
--   Json Web Tokens to handle user validation.
+-   Json Web Tokens to handle user validation. JWT also has a time-to-live so it will expire and has to be refreshed.
 
 -   2FA sms services to handle authentication.
 
