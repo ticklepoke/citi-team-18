@@ -43,7 +43,7 @@ def create_user_account(session: Session, user: UserAccountDetails):
 def create_2fa_token(session: Session, user: User2FARequest):
     sess = session or LocalSession()
     random_token = " ".join([str(random.randint(0, 999)).zfill(3) for _ in range(2)])
-    user_2fa_entry = User2FA(user.username, random_token)
+    user_2fa_entry = User2FA(username=user.username, token=random_token)
     sess.add(user_account)
     sess.commit()
     sess.refresh(user_2fa_entry)
