@@ -26,6 +26,26 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   Password free authentication to make it easier to log in.
 
+## Demo
+
+-   The frontend can be viewed at http://35.247.137.131:3000/
+
+-   The backend docs can be viewed at http://35.247.137.131:8080/docs
+
+## Tech Stack
+
+-   Frontend: React
+
+-   Backend: FastAPI (Python)
+
+-   Database: PostgreSQL
+
+-   Design Library: Ant Design
+
+-   Deployment Tools: Docker-Compose
+
+-   Cloud Deployment: GCP
+
 ## Work Breakdown
 
 ### Chin Zhi Wei
@@ -41,10 +61,13 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 -   Built the login page with 2FA capabilities.
 
 -   Built the past transactions page
+
 -   Setup the JWT handling
 
 ### Lester Tay
 
 -   Built the transaction sending page
+
 -   Setup the front end router
+
 -   Setup the stylesheets
