@@ -9,3 +9,8 @@ port = os.getenv("PORT")
 app = FastAPI()
 
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
+
+
+@app.get("/")
+async def healthcheckz():
+    return "Hello"
