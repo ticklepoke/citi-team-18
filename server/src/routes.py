@@ -71,7 +71,7 @@ async def login_for_access_token(
 async def send_sms(
     user_request: User2FARequest, session: Session = Depends(get_db_session)
 ):
-    user_2fa_entry = create_2fa_token(user_request.username)
+    user_2fa_entry = create_2fa_token(session, user_request)
     user_account = get_user_account(session, UserAccount, user_request.username)
     client = Client(account_sid, auth_token)
 
