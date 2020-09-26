@@ -11,6 +11,8 @@ Ez-Transfer is a web centric solution for money transfer that focuses on securit
 3. Broken Authentication
 4. Container Escape Attacks
 
+**We developed this software as a proof of concept for demonstrating how we can mitigate human, developer and infrastructure based vulnerabilities.**
+
 ## Security Principles
 
 ### Limiting Blast Radius
