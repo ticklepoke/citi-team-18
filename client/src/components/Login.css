@@ -1,0 +1,64 @@
+.bg-main {
+    background-image: url("../assets/bgmask.jpg");
+    background-color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -30px;
+    /* filter: brightness(0.4); */
+    position: absolute;
+    height: calc(100vh - 50px);
+    width: 100%;
+}
+
+.card {
+    width: 40%;
+    margin: 20px;
+    margin-top: 200px;
+}
+
+.form-login {
+    margin: 20px;
+}
+.display-flex-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.display-flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel-button {
+}
+
+.code-input {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.sms-label {
+    text-align: center;
+}
+
+.sms-form {
+    margin-top: 30px;
+}
+
+@media (max-width: 800px) {
+    .card {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .display-flex-card {
+        justify-content: center;
+    }
+
+    .code-input {
+        width: 100%;
+        overflow: auto;
+    }
+}
