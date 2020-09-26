@@ -28,19 +28,19 @@ auth_router = APIRouter()
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 
-
 @auth_router.get("/health")
 async def health_check(session: Session = Depends(get_db_session)):
     return "Health good"
 
 
-@auth_router.post("/users", response_model=UserAccountResponse, status_code=201)
+@auth_router.post("/users", status_code=201)
 async def create_user(
     user_account_details: UserAccountDetails, session: Session = Depends(get_db_session)
 ):
     db_user = get_user_account(session, user_account_details.username)
     if db_user is not None:
-        raise HTTPException(status_code=400, detail="User has already registered")
+        return "Registered already"
+        #raise HTTPException(status_code=400, detail="User has already registered")
 
     created_user = create_user_account(session, user_account_details)
     response = {"id": created_user.userid, "username": created_user.username}

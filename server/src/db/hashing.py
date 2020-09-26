@@ -19,6 +19,6 @@ def authenticate_user(
 ) -> Union[str, UserAccount]:
     user = db.query(UserAccount).filter(UserAccount.username == username).first()
 
-    if not user or not verify_password(password, user.password):
+    if not user or not verify_password(password, user.hashed_password):
         return False
     return user
