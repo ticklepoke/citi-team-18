@@ -7,7 +7,7 @@ from uuid import uuid4
 import random
 import os
 
-DB_URL = os.getenv("DB_URL", "postgresql+pg8000://postgres:@localhost:5432")
+DB_URL = os.getenv("DB_URL", "postgresql://postgres:@localhost:5432")
 
 engine = create_engine(DB_URL, client_encoding="utf8")
 

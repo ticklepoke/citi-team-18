@@ -8,7 +8,7 @@ Base = declarative_base()
 class UserAccount(Base):
     __tablename__ = "user_accounts"
 
-    user_id = Column(Integer, primary_key=True)
+    userid = Column(Integer, primary_key=True)
     username = Column(String)
     hashed_password = Column(String)
     mobile_number = Column(String)
