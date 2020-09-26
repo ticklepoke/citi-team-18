@@ -6,8 +6,8 @@ Team TrizzaPizza's submission for the Citi Virtual Hackathon 2020.
 
 ![Continuous Integration and Development](./CICD.png)
 
-With the advent of DevOps (Continuous Integration and Development) and Cloud Services, we have found that a lot of security can be focused on not
-only the **human** side.
+With the advent of DevOps (Continuous Integration and Development) and Cloud Services, we have found that a lot of security can be focused on
+the **developer** side.
 Ez-Transfer is a web centric solution for money transfer that focuses on security and seamless user experience. Targets the following **OWASP** security risks:
 
 1. SQL injection
