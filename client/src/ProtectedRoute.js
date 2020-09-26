@@ -31,7 +31,7 @@ export const clearToken = () => {
   }
 };
 
-export default function ProtectedRoute({ component: Component, ...rest }) {
+export default function ProtectedRoute({ render: Component, ...rest }) {
   const token = loadToken();
 
   return (
