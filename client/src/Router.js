@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
-
+import ProtectedRoute from "./ProtectedRoute";
 import Login from "./components/Login";
 import Transaction from "./components/Transaction";
 
@@ -28,7 +28,7 @@ function Router(props) {
             </Fragment>
           )}
         />
-        <Route
+        <ProtectedRoute
           path="/transaction"
           exact
           render={(props) => (
