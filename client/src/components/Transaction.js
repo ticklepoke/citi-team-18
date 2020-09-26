@@ -43,7 +43,7 @@ const Transaction = () => {
         <Row
           style={{
             width: "100%",
-            backgroundColor: "#2392cc",
+            backgroundImage: "linear-gradient(#24C6DC,#514A9D)",
             minHeight: 250,
             borderRadius: 14,
             boxShadow: "-4px 3px 16px -4px rgba(35,146,204,0.86)",
@@ -55,7 +55,7 @@ const Transaction = () => {
             <Text
               style={{
                 position: "relative",
-                top: 10,
+                top: 7,
                 marginTop: 10,
                 color: "#F6F7EB",
                 fontSize: 28,
@@ -65,7 +65,7 @@ const Transaction = () => {
             </Text>
             <Text
               level={2}
-              style={{ marginTop: 0, color: "#F6F7EB", fontSize: 67 }}
+              style={{ marginTop: 0, color: "#F6F7EB", fontSize: 78 }}
             >
               {`$${parseFloat(balance).toFixed(2)}`}
             </Text>

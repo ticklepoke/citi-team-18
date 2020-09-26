@@ -7,6 +7,7 @@ import {
   Typography,
   Cascader,
   message,
+  Row,
 } from "antd";
 
 import {
@@ -146,7 +147,7 @@ const NewTransactionButton = (props) => {
     });
   };
   return (
-    <Fragment>
+    <Row style={{ marginTop: 20 }}>
       <Button
         type="primary"
         style={{
@@ -186,7 +187,7 @@ const NewTransactionButton = (props) => {
           setVisible(false);
         }}
       />
-    </Fragment>
+    </Row>
   );
 };
 export default NewTransactionButton;
