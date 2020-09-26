@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, Row, Col, Typography } from "antd";
+import PastTransactions from "./PastTransactions";
 import ButtonWithModal from "./ButtonWithModal";
 const { Title } = Typography;
 const Transaction = () => (
-  <Row style={{ paddingTop: 20 }}>
+  <Row style={{ paddingTop: 20 }} className="background-light-grey">
     <Col span={4}></Col>
     <Col span={16}>
       {" "}
@@ -18,6 +19,11 @@ const Transaction = () => (
         }}
       ></Row>
       <ButtonWithModal />
+    </Col>
+    <Col span={4}></Col>
+    <Col span={4}></Col>
+    <Col span={16}>
+      <PastTransactions />
     </Col>
     <Col span={4}></Col>
   </Row>

@@ -1,0 +1,38 @@
+.display-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-row {
+    width: 100%;
+}
+
+.transaction-card {
+    margin-top: 10px;
+}
+.label-amount {
+    text-align: center;
+}
+.amount {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+.col-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-bold {
+    font-weight: bolder;
+}
+
+.transaction-card:hover {
+    box-shadow: 0px 2px 5px #999;
+    transition: box-shadow ease-in 250ms;
+}
