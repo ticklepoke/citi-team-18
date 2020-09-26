@@ -73,8 +73,6 @@ async def send_sms(
 ):
     user_2fa_entry = create_2fa_token(user_request.username)
     user_account = get_user_account(session, UserAccount, user_request.username)
-    account_sid = "AC6d4537ef73d09aa1e7121d79ad738e66"
-    auth_token = "63d02993ed76a69bebc7f42d9935a3ff"
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
