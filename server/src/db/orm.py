@@ -1,7 +1,7 @@
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy import create_engine, Integer, String, Column
 from typing import Optional
-from .models import UserAccount, UserAccountDetails, User2FARequest, User2FAKey
+from .models import UserAccount, UserAccountDetails, User2FARequest, User2FA
 from .hashing import encrypt_password
 from uuid import uuid4
 import random
@@ -22,9 +22,9 @@ def get_db_session():
         db.close()
 
 
-def get_user_account(session: Session, model: UserAccount, username: str):
+def get_user_account(session: Session, username: str):
     sess = session or LocalSession()
-    result = sess.query(model).filter(model.username == username).first()
+    result = sess.query(UserAccount).filter(UserAccount.username == username).first()
     if result is None:
         return None
     return result
@@ -33,7 +33,7 @@ def get_user_account(session: Session, model: UserAccount, username: str):
 def create_user_account(session: Session, user: UserAccountDetails):
     sess = session or LocalSession()
     hashed_password = encrypt_password(user.password)
-    user_account = UserAccount(username=user.username, password=hashed_password)
+    user_account = UserAccount(username=user.username, hashed_password=hashed_password)
     sess.add(user_account)
     sess.commit()
     sess.refresh(user_account)
@@ -43,7 +43,7 @@ def create_user_account(session: Session, user: UserAccountDetails):
 def create_2fa_token(session: Session, user: User2FARequest):
     sess = session or LocalSession()
     random_token = " ".join([str(random.randint(0, 999)).zfill(3) for _ in range(2)])
-    user_2fa_entry = User2FAKey(user.username, random_token)
+    user_2fa_entry = User2FA(user.username, random_token)
     sess.add(user_account)
     sess.commit()
     sess.refresh(user_2fa_entry)
@@ -52,7 +52,7 @@ def create_2fa_token(session: Session, user: User2FARequest):
 
 def get_user_token(session: Session, username: str):
     sess = session or LocalSession()
-    result = sess.query(User2FAKey).filter(User2FAKey.username == username).first()
+    result = sess.query(User2FA).filter(User2FA.username == username).first()
     if result is None:
         return None
     return result
