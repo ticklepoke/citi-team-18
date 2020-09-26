@@ -32,7 +32,7 @@ const Login = () => {
         //     setError(true);
         // }
 
-        setInterval(() => {
+        setTimeout(() => {
             setStep(1);
             setloading(false);
         }, 1000);
@@ -60,7 +60,9 @@ const Login = () => {
         // } catch (err) {
         //     setError(true);
         // }
-        history.push("/transaction");
+        setTimeout(() => {
+            history.push("/transaction");
+        }, 2000);
     };
 
     const renderError = () => {
