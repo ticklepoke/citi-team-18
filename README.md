@@ -38,6 +38,8 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   Built the login page with 2FA capabilities.
 
+-   Built the past transactions page
+
 ### Lester Tay
 
--   Built the transaction page
+-   Built the transaction sending page
