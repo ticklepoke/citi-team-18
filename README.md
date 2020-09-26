@@ -13,6 +13,18 @@ Ez-Transfer is a web centric solution for money transfer that focuses on securit
 
 **We developed this software as a proof of concept for demonstrating how we can mitigate human, developer and infrastructure based vulnerabilities.**
 
+## Security Techniques
+
+Ez-transfer applies the following techniques to ensure secure transactions and user identity protection:
+
+-   Json Web Tokens to handle user validation. JWT also has a time-to-live so it will expire and has to be refreshed.
+
+-   2FA sms services to handle authentication.
+
+-   Database sanitisation to prevent injection attacks (Object Relational Mapping Layer).
+
+-   CSRF protection because we pass in the JWT through Bearer instead of a cookie.
+
 ## Security Principles
 
 ### Limiting Blast Radius
@@ -26,18 +38,6 @@ We built and bundle our production code with a multi stage process, preventing r
 ### Secrets
 
 Sensitive information such as auth tokens and secrets keys were not checked into source code or docker images. We used docker secrets as resources to manage our secret keys.
-
-## Security Techniques
-
-Ez-transfer applies the following techniques to ensure secure transactions and user identity protection:
-
--   Json Web Tokens to handle user validation. JWT also has a time-to-live so it will expire and has to be refreshed.
-
--   2FA sms services to handle authentication.
-
--   Database sanitisation to prevent injection attacks (Object Relational Mapping Layer).
-
--   CSRF protection because we pass in the JWT through Bearer instead of a cookie.
 
 ## User Experience
 
