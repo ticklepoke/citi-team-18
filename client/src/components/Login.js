@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import "./Login.css";
 import { Card, Steps, Form, Button, Input } from "antd";
 import ReactCodeInput from "react-verification-code-input";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const { Step } = Steps;
 const Login = () => {
@@ -9,9 +11,18 @@ const Login = () => {
     const [mobile, setMobile] = useState("+65");
     const [sms, setSMS] = useState("");
     const [loading, setloading] = useState(false);
+    const [error, setError] = useState(false);
 
-    const submitNumber = () => {
-        setStep(1);
+    const submitNumber = async () => {
+        try {
+            const res = await axios.post("blah", { data: mobile });
+
+            if (res.success) {
+                setStep(1);
+            }
+        } catch (err) {
+            setError(true);
+        }
     };
 
     const cancelStep = () => {
@@ -23,8 +34,25 @@ const Login = () => {
         console.log(event.target.value);
     };
 
-    const submitSMS = (event) => {
+    const submitSMS = async (event) => {
         setSMS(event);
+        try {
+            const res = await axios.post("sms", { data: sms });
+
+            if (res.success) {
+                return <Redirect to="/transaction" />;
+            }
+        } catch (err) {
+            setError(true);
+        }
+    };
+
+    const renderError = () => {
+        if (error) {
+            return <span className="text-error">Please try again</span>;
+        } else {
+            return null;
+        }
     };
 
     const renderStep = () => {
@@ -91,6 +119,7 @@ const Login = () => {
                         <Step key={1} title="Verification"></Step>
                     </Steps>
                     {renderStep()}
+                    {renderError()}
                 </Card>
             </div>
         </Fragment>
