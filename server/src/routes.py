@@ -34,11 +34,11 @@ async def health_check(session: Session = Depends(get_db_session)):
     return "Health good"
 
 
-@auth_router.post("/users/", response_model=UserAccountResponse, status_code=201)
+@auth_router.post("/users", response_model=UserAccountResponse, status_code=201)
 async def create_user(
     user_account_details: UserAccountDetails, session: Session = Depends(get_db_session)
 ):
-    db_user = get_user_account(session, UserAccount, user_account_details.username)
+    db_user = get_user_account(session, user_account_details.username)
     if db_user is not None:
         raise HTTPException(status_code=400, detail="User has already registered")
 
@@ -72,7 +72,7 @@ async def send_sms(
     user_request: User2FARequest, session: Session = Depends(get_db_session)
 ):
     user_2fa_entry = create_2fa_token(session, user_request)
-    user_account = get_user_account(session, UserAccount, user_request.username)
+    user_account = get_user_account(session, user_request.username)
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
