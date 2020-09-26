@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Row, Col, Typography } from "antd";
 import PastTransactions from "./PastTransactions";
 import ButtonWithModal from "./ButtonWithModal";
 import { HistoryOutlined, SettingOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { clearToken } from "../ProtectedRoute";
+import { pastTransactions } from "../data";
+
 const { Title, Text } = Typography;
 const Transaction = () => {
   const history = useHistory();
+  const [transactions, setTransactions] = useState(pastTransactions);
+  const [balance, setBalance] = useState(1890.3);
+
   const logout = () => {
     history.push("/login");
     clearToken();
   };
+
+  function newTransactionMock(transaction) {
+    setTransactions([transaction, ...pastTransactions]);
+    setBalance((state) => state - transaction.amount);
+  }
   return (
     <Row style={{ paddingTop: 20 }} className="background-light-grey">
       <Col span={4}></Col>
@@ -57,8 +67,7 @@ const Transaction = () => {
               level={2}
               style={{ marginTop: 0, color: "#F6F7EB", fontSize: 67 }}
             >
-              {" "}
-              $1890.30{" "}
+              {`$${parseFloat(balance).toFixed(2)}`}
             </Text>
           </Row>
 
@@ -83,12 +92,12 @@ const Transaction = () => {
           <h1 className="text-white text-center text-padding-top">Settings</h1>
         </Col> */}
         </Row>
-        <ButtonWithModal />
+        <ButtonWithModal newTransactionMock={newTransactionMock} />
       </Col>
       <Col span={4}></Col>
       <Col span={4}></Col>
       <Col span={16}>
-        <PastTransactions />
+        <PastTransactions transactions={transactions} />
       </Col>
       <Col span={4}></Col>
     </Row>
