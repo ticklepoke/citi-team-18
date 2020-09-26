@@ -11,3 +11,8 @@
     padding-left: 30px;
     padding-top: 2px;
 }
+
+.background-light-grey {
+    background-color: #eee;
+    min-height: calc(100vh - 50px);
+}
