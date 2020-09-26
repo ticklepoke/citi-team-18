@@ -16,7 +16,7 @@ Ez-transfer applies the following techniques to ensure secure transactions and u
 
 -   Database sanitisation to prevent injection attacks (Object Relational Mapping Layer).
 
--   XSS protection.
+-   CSRF protection.
 
 ## User Experience
 
