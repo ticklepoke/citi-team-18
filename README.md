@@ -46,6 +46,8 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 -   Cloud Deployment: GCP
 
+-   2FA Service: Twilio
+
 ## Work Breakdown
 
 ### Chin Zhi Wei
