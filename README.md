@@ -28,9 +28,25 @@ Ez-transfer applies the following techniques on the User Experience side to prov
 
 ## Demo
 
--   The frontend can be viewed at [http://35.247.137.131:3000/]
+-   The frontend can be viewed at http://35.247.137.131:3000/
 
--   The backend docs can be viewed at [http://35.247.137.131:8080/docs]
+-   The backend docs can be viewed at http://35.247.137.131:8080/docs
+
+## Tech Stack
+
+-   Frontend: React
+
+-   Backend: FastAPI (Python)
+
+-   Database: PostgreSQL
+
+-   Design Library: Ant Design
+
+-   Deployment Tools: Docker-Compose
+
+-   Cloud Deployment: GCP
+
+-   2FA Service: Twilio
 
 ## Work Breakdown
 

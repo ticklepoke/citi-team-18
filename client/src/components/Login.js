@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from "react";
 import "./Login.css";
-import { Card, Steps, Form, Button, Input } from "antd";
+import { Card, Steps, Form, Button, Input, Spin } from "antd";
 import ReactCodeInput from "react-verification-code-input";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 const { Step } = Steps;
 const Login = () => {
@@ -12,17 +12,30 @@ const Login = () => {
     const [sms, setSMS] = useState("");
     const [loading, setloading] = useState(false);
     const [error, setError] = useState(false);
+    const history = useHistory();
 
     const submitNumber = async () => {
-        try {
-            const res = await axios.post("blah", { data: mobile });
+        setError(false);
+        setloading(true);
+        // PROD API
+        // try {
+        //     const res = await axios.post(
+        //         "http://35.247.137.131:8080/auth/hook",
+        //         { username: mobile }
+        //     );
 
-            if (res.success) {
-                setStep(1);
-            }
-        } catch (err) {
-            setError(true);
-        }
+        //     if (res.success) {
+        //         setStep(1);
+        //     }
+        // } catch (err) {
+        //     console.log(err);
+        //     setError(true);
+        // }
+
+        setInterval(() => {
+            setStep(1);
+            setloading(false);
+        }, 1000);
     };
 
     const cancelStep = () => {
@@ -31,20 +44,23 @@ const Login = () => {
 
     const handleMobileChange = (event) => {
         setMobile(event.target.value);
-        console.log(event.target.value);
     };
 
     const submitSMS = async (event) => {
+        setloading(true);
         setSMS(event);
-        try {
-            const res = await axios.post("sms", { data: sms });
 
-            if (res.success) {
-                return <Redirect to="/transaction" />;
-            }
-        } catch (err) {
-            setError(true);
-        }
+        // PROD code
+        // try {
+        //     const res = await axios.post("sms", { data: sms });
+
+        //     if (res.success) {
+        //         return <Redirect to="/transaction" />;
+        //     }
+        // } catch (err) {
+        //     setError(true);
+        // }
+        history.push("/transaction");
     };
 
     const renderError = () => {
@@ -56,7 +72,13 @@ const Login = () => {
     };
 
     const renderStep = () => {
-        if (step === 0) {
+        if (loading) {
+            return (
+                <div className="spinner-container">
+                    <Spin />
+                </div>
+            );
+        } else if (step === 0) {
             return (
                 <Form className="form-login">
                     <Form.Item
@@ -77,7 +99,11 @@ const Login = () => {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button type="primary" onClick={submitNumber}>
+                        <Button
+                            type="primary"
+                            disabled={mobile.length < 8}
+                            onClick={submitNumber}
+                        >
                             Submit
                         </Button>
                     </Form.Item>

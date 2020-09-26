@@ -8,9 +8,9 @@ Base = declarative_base()
 class UserAccount(Base):
     __tablename__ = "user_accounts"
 
-    user_id = Column(Integer, primary_key=True)
+    userid = Column(Integer, primary_key=True)
     username = Column(String)
-    password = Column(String)
+    hashed_password = Column(String)
     mobile_number = Column(String)
 
     def __eq__(self, other):
@@ -18,12 +18,12 @@ class UserAccount(Base):
             isinstance(other, UserAccount)
             and other.user_id == self.user_id
             and other.username == self.username
-            and other.password == self.password
+            and other.hashed_password == self.hashed_password
             and other.mobile_number == self.mobile_number
         )
 
     def __repr__(self):
-        return f"UserAccount(id={self.user_id}, username={self.username}, password={self.password}, mobile_number={self.mobile_number})"
+        return f"UserAccount(id={self.user_id}, username={self.username}, password={self.hashed_password}, mobile_number={self.mobile_number})"
 
 
 class User2FA(Base):

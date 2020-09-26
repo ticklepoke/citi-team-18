@@ -23,6 +23,7 @@ python-jose = "*"
 python-multipart = "*"
 twilio = "*"
 authy = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
