@@ -1,6 +1,6 @@
 # Citi Ez-Transfer by Team TrizzaPizza
 
-Team TrizzaPizza's submission for the Citi Virtual Hackathon 2020.
+Team TrizzaPizza's submission for the Citi Virtual Hackathon 2020. We got Best UI!
 
 ## Introduction
 
