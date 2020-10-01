@@ -3,7 +3,6 @@
 To start developing, go into the service directory and initialize the dependencies
 
 ```
-cd services/aat
 pipenv shell
 pipenv install
 ```
